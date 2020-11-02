@@ -24,7 +24,7 @@ public class MainCli {
 		// 기반파일 경로 입력
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("원본파일경로 입력하세요");
+		System.out.println("원본파일이름 입력하세요");
 		srcFilePath = System.getProperty("user.dir") + File.separator + sc.next();
 		
 		System.out.println("원본파일의 언어를 입력하세요");
@@ -36,7 +36,7 @@ public class MainCli {
 		
 		
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@");
-		System.out.println("원본파일이름 입력하세요");
+		System.out.println("목표파일이름 입력하세요");
 		desFilePath = System.getProperty("user.dir") + File.separator + sc.next();
 		
 		System.out.println("원하시는 언어를 입력하세요");
