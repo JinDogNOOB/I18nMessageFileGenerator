@@ -8,11 +8,6 @@ import java.util.List;
 
 public class Translator {
 	
-	public Translator() {
-		
-	}
-	
-	
 	/**
 	 * https://cofs.tistory.com/365
      * cmd 명령어 실행

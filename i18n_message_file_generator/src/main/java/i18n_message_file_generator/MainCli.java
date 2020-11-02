@@ -44,7 +44,7 @@ public class MainCli {
 		sc.close();
 		
 		I18nTranslator i18n = new I18nTranslator(srcFilePath, srcLang, desFilePath, desLang);
-		i18n.translate();
+		i18n.execute();
 		
 		
 		

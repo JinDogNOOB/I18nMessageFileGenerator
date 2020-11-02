@@ -1,27 +1,19 @@
 package i18n_message_file_generator;
 
-import java.io.Reader;
-import java.nio.charset.Charset;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import java.util.Set;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
+import java.util.Properties;
+import java.util.Set;
 
-import com.google.common.io.Resources;
-
-// https://zinblog.tistory.com/96 참고
-public class I18nTranslator {
-	private String srcFile;
-	private String srcLangCode;
-	private String desFile;
-	private String desLangCode;
+public abstract class I18nTranslator {
+	protected String srcFile;
+	protected String srcLangCode;
+	protected String desFile;
+	protected String desLangCode;
 	// Map<Integer, String> langCode = new HashMap<Integer, String>();
 	public static final String[] langName = {"한국어", "영어", "일본어", "독일어", "중국어(간체)", "중국어(번체)", "러시아어", "스페인어", "프랑스어"};
 	public static final String[] langCode = {"ko", "en", "ja", "de", "zh-CN", "zh-TW", "ru", "es", "fr"};
@@ -40,29 +32,8 @@ public class I18nTranslator {
 		
 	}
 	
-	public void translate() throws IOException {
-		// 작업 시작
-		Properties properties = getProperties(srcFile);
-		
-		Properties desProperties = new Properties();
-		
-		Set<String> keys = properties.stringPropertyNames();
-		
-		// Translator.translate(srcString, srcLangCode, desLangCode);
-		for(String key : keys) {
-			System.out.println(properties.getProperty(key) + " to=>");
-			String temp = Translator.translate(properties.getProperty(key), srcLangCode , desLangCode);
-			
-			desProperties.put(key, temp);
-		}
-		
-		System.out.println("번역완료 이제 저장함");
-		
-		FileOutputStream fos = new FileOutputStream(new File(desFile));
-		desProperties.store(fos, "completed");
-		
-	}
-	
+	public abstract void execute();
+
 	
 	public static String getLangCode(int num) {
 		if(num >= 0 && num < langName.length) {
@@ -77,21 +48,11 @@ public class I18nTranslator {
 		
 	}
 	
-	private Properties getProperties(String src) {
-		Properties properties = new Properties();
-		try {
-			FileInputStream fis = new FileInputStream(new File(src));
-			properties.load(new InputStreamReader(fis, Charset.forName("UTF-8")));
-		}catch(IOException e) {
-			e.printStackTrace();
-		}
-		return properties;
-	}
-
 }
 
+
 /*
- 
+
 한국어 	ko
 영어 	en
 일본어 	ja
@@ -101,9 +62,6 @@ public class I18nTranslator {
 러시아어 	ru
 스페인어 	es
 프랑스어 	fr
-
-
-
 
 
 */
