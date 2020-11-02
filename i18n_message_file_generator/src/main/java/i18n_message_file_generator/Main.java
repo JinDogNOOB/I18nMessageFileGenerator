@@ -1,7 +1,15 @@
 package i18n_message_file_generator;
 
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.Set;
+
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 
 public class Main{
@@ -20,8 +28,11 @@ public class Main{
 //		System.out.println("Translation: "+result);
 
 		new MainCli();
-	
+
+		
 		return;
 	}
+	
+
 }
 

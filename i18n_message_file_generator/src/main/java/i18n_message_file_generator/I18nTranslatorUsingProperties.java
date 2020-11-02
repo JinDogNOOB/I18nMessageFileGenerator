@@ -27,7 +27,7 @@ public class I18nTranslatorUsingProperties extends I18nTranslator{
 
 	public void execute(){
 		// 작업 시작
-		Properties properties = getProperties(srcFile);
+		Properties properties = getPropertiesFile(srcFile);
 		
 		Properties desProperties = new Properties();
 		
@@ -52,7 +52,7 @@ public class I18nTranslatorUsingProperties extends I18nTranslator{
 	}
 	
 	
-	private Properties getProperties(String src) {
+	private Properties getPropertiesFile(String src) {
 		Properties properties = new Properties();
 		try {
 			FileInputStream fis = new FileInputStream(new File(src));
