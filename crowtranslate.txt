@@ -1,0 +1,36 @@
+sudo add-apt-repository ppa:jonmagon/crow-translate
+sudo apt update
+sudo apt install crow-translate
+
+
+crow -c   // get language codes 
+crow -b -s ko -t en "something"
+
+
+
+
+
+28
+
+Found a fix: https://github.com/kdudka/csmock/commit/96a4a759a7de39f8da109202f4fa14c76a0ae68f
+
+Or simply run:
+
+# strip --remove-section=.note.ABI-tag /usr/lib64/libQt5Core.so.5
+
+The root cause does seem to be related to the lack of renameat2() in the WSL 'kernel'.
+
+
+sudo strip --remove-section=.note.ABI-tag /usr/lib/x86_64-linux-gnu/libQt5Core.so.5
+
+English - en
+Korean - ko
+Japanese - ja
+German - de
+Chinese (Simplified) - zh-CN
+Chinese (Traditional) - zh-TW
+Russian - ru
+Spanish - es
+French - fr
+
+
