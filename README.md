@@ -10,7 +10,7 @@ you can make message_ko.json, message_ja.json, message_fr.json message_ru.json..
 
 ## requirement
 ### crow-translate (https://crow-translate.github.io/)
-#### thanks to crow-translate team!!!!
+#### many thanks to crow-translate team!!!!
 ### jdk-11
 
 
