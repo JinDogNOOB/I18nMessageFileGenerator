@@ -3,6 +3,7 @@
 ## intro
 it generates multiple language i18nMessageFiles from a MessageFile(.json or .properties) used for i18nGlobalization
 if you use this
+
 you can make message_ko.json, message_ja.json, message_fr.json message_ru.json...etc easily by using message_en.json
 
 ## environment
