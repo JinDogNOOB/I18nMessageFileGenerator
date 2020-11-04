@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.Charset;
@@ -13,6 +14,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonObject;
@@ -32,13 +34,30 @@ public class I18nTranslatorUsingJson extends I18nTranslator{
 		// 작업 시작
 		JsonObject jsonObject = getJsonFile(srcFile);
 		JsonObject result = doJsonRecurWithTranslation(jsonObject);
-
+		
+		try(FileWriter file = new FileWriter(desFile)){
+			// Gson 
+			Gson gson = new GsonBuilder().setPrettyPrinting().create();
+			
+			String prettyJsonString = gson.toJson(result);
+			file.write(prettyJsonString);
+			
+			file.flush();
+			file.close();
+			
+		}catch(IOException e) {
+			e.printStackTrace();
+			
+		}
+		/*
+		여기는 더럽게 한줄로 프린팅한다
 		try {
 			FileOutputStream fos = new FileOutputStream(new File(desFile));
 			fos.write(result.toString().getBytes());
 		}catch(IOException e) {
 			e.printStackTrace();
 		}	
+		*/
 	}
 	
 	private JsonObject doJsonRecurWithTranslation(JsonObject jsonObject) {

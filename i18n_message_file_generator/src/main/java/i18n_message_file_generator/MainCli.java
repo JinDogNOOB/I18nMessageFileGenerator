@@ -31,8 +31,22 @@ public class MainCli {
 		I18nTranslator.printLangCodes();
 		srcLang = I18nTranslator.getLangCode(sc.nextInt());
 		
-		System.out.println("파일 확장자를 선택하세요 0:properties 1:json");
-		mode = sc.nextInt();
+		// System.out.println(srcFilePath.substring(srcFilePath.length() - "json".length(), srcFilePath.length()-1));
+		// System.out.println("파일 확장자를 선택하세요 0:properties 1:json");
+		if(srcFilePath.length() > "json".length() &&
+				srcFilePath.substring(srcFilePath.length() - "json".length(), srcFilePath.length()).contentEquals("json")) {
+			System.out.println(".json 확인");
+			mode = 1;
+		}
+		else if(srcFilePath.length() > "properties".length() && 
+				srcFilePath.substring(srcFilePath.length() - "properties".length(), srcFilePath.length()).contentEquals("properties")) {
+			System.out.println(".properties 확인");
+			mode = 0;
+		}
+		else {
+			System.out.println("default...properties");
+			mode = 0;
+		}
 		
 		
 		System.out.println("@@@@@@@@@@@@@@@@@@@@@@");

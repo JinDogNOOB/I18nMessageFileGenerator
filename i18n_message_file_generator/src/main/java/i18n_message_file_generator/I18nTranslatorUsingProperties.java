@@ -13,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 
 import com.google.common.io.Resources;
 
@@ -39,13 +40,14 @@ public class I18nTranslatorUsingProperties extends I18nTranslator{
 			String temp = Translator.translate(properties.getProperty(key), srcLangCode , desLangCode);
 			
 			desProperties.put(key, temp);
+			
 		}
 		
 		System.out.println("번역완료 이제 저장함");
 		
 		try {
 			FileOutputStream fos = new FileOutputStream(new File(desFile));
-			desProperties.store(fos, "completed");
+			desProperties.store(new OutputStreamWriter(fos, "UTF-8"), "completed");
 		}catch(IOException e) {
 			e.printStackTrace();
 		}	
