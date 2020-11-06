@@ -14,6 +14,7 @@ public abstract class I18nTranslator {
 	protected String srcLangCode;
 	protected String desFile;
 	protected String desLangCode;
+	protected String engine;
 	// Map<Integer, String> langCode = new HashMap<Integer, String>();
 	public static final String[] langName = {"한국어", "영어", "일본어", "독일어", "중국어(간체)", "중국어(번체)", "러시아어", "스페인어", "프랑스어"};
 	public static final String[] langCode = {"ko", "en", "ja", "de", "zh-CN", "zh-TW", "ru", "es", "fr"};
@@ -24,11 +25,12 @@ public abstract class I18nTranslator {
 	 * @param desFile
 	 * @param desLangCode
 	 */
-	public I18nTranslator(String srcFile, String srcLangCode, String desFile, String desLangCode) {
+	public I18nTranslator(String srcFile, String srcLangCode, String desFile, String desLangCode, String engine) {
 		this.srcFile = srcFile;
 		this.srcLangCode = srcLangCode;
 		this.desFile = desFile;
 		this.desLangCode = desLangCode;
+		this.engine = engine;
 		
 	}
 	

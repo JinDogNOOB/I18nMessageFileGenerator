@@ -25,8 +25,8 @@ import com.google.gson.JsonSyntaxException;
 
 public class I18nTranslatorUsingJson extends I18nTranslator{
 
-	public I18nTranslatorUsingJson(String srcFile, String srcLangCode, String desFile, String desLangCode) {
-		super(srcFile, srcLangCode, desFile, desLangCode);
+	public I18nTranslatorUsingJson(String srcFile, String srcLangCode, String desFile, String desLangCode, String engine) {
+		super(srcFile, srcLangCode, desFile, desLangCode, engine);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -66,7 +66,7 @@ public class I18nTranslatorUsingJson extends I18nTranslator{
 		for(Entry<String, JsonElement> s : set) {
 			
 			if(s.getValue().isJsonObject()) result.add(s.getKey(), doJsonRecurWithTranslation(s.getValue().getAsJsonObject()));
-			else if(s.getValue().isJsonPrimitive()) result.addProperty(s.getKey(), Translator.translate(s.getValue().getAsString(), srcLangCode , desLangCode));
+			else if(s.getValue().isJsonPrimitive()) result.addProperty(s.getKey(), Translator.translate(s.getValue().getAsString(), srcLangCode , desLangCode, engine));
 			else System.out.println("?");
 		}
 		return result;

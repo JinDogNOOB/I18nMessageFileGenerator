@@ -20,8 +20,8 @@ import com.google.common.io.Resources;
 // https://zinblog.tistory.com/96 Âü°í
 public class I18nTranslatorUsingProperties extends I18nTranslator{
 	
-	public I18nTranslatorUsingProperties(String srcFile, String srcLangCode, String desFile, String desLangCode) {
-		super(srcFile, srcLangCode, desFile, desLangCode);
+	public I18nTranslatorUsingProperties(String srcFile, String srcLangCode, String desFile, String desLangCode, String engine) {
+		super(srcFile, srcLangCode, desFile, desLangCode, engine);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -37,7 +37,7 @@ public class I18nTranslatorUsingProperties extends I18nTranslator{
 		// Translator.translate(srcString, srcLangCode, desLangCode);
 		for(String key : keys) {
 			System.out.println(properties.getProperty(key) + " to=>");
-			String temp = Translator.translate(properties.getProperty(key), srcLangCode , desLangCode);
+			String temp = Translator.translate(properties.getProperty(key), srcLangCode , desLangCode, engine);
 			
 			desProperties.put(key, temp);
 			

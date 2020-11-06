@@ -15,7 +15,7 @@ public class Translator {
      * @param cmd
      */
 	
-    public static String translate(String srcString, String srcLangCode, String desLangCode) {
+    public static String translate(String srcString, String srcLangCode, String desLangCode, String engine) {
         Process process = null;
         Runtime runtime = Runtime.getRuntime();
         StringBuffer successOutput = new StringBuffer(); // 성공 스트링 버퍼
@@ -31,6 +31,8 @@ public class Translator {
 
         cmdList.add("crow");
         cmdList.add("-b");
+        cmdList.add("-e");
+        cmdList.add(engine);
         cmdList.add("-s");
         cmdList.add(srcLangCode);
         cmdList.add("-t");
