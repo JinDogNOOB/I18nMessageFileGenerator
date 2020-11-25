@@ -14,6 +14,7 @@
 
 
 ## 효과
+
 하나의 원본언어 메시지파일로 여러 국가언어의 메시지파일을 만들 수 있음
 
 
@@ -31,6 +32,7 @@
 2. ./build/lib 에 있는 ~-all.jar 가 있는 곳으로 이동
 3. 현재 디렉토리에 원본파일 ko.properties 위치
 4. java -jar ~-all.jar <srcFileName> <srcLanguage> <desLanguage> bing
+
 srcFileName에는 파일의 확장명까지 적으면 됩니다.
   
 Language 두부분에는 ko, en, ja, de, zh-CN, zh-TW, fr 중에 입력하시면 됩니다.
