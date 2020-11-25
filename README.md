@@ -31,7 +31,7 @@
 1. 프로젝트 빌드(gradle)
 2. ./build/lib 에 있는 ~-all.jar 가 있는 곳으로 이동
 3. 현재 디렉토리에 원본파일 ko.properties 위치
-4. java -jar ~-all.jar <srcFileName> <srcLanguage> <desLanguage> bing
+4. java -jar ~-all.jar \<srcFileName> \<srcLanguage> \<desLanguage> bing
 
 srcFileName에는 파일의 확장명까지 적으면 됩니다.
   
