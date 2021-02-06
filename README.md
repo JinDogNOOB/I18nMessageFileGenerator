@@ -35,10 +35,9 @@
 
 srcFileName에는 파일의 확장명까지 적으면 됩니다.
   
-Language 두부분에는 ko, en, ja, de, zh-CN, zh-TW, fr 중에 입력하시면 됩니다.
+Language 두부분에는 korean, english 처럼 입력하시면 됩니다.
 
 
 ## 계획
-* 유저인터페이스 구축
-* 리팩토링
+* 유저인터페이스
 * 실행파일
